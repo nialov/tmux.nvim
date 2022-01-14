@@ -74,17 +74,17 @@ function M.setup()
         return
     end
 
-    vim.cmd([[
-        if !exists("tmux_autocommands_loaded")
-            let tmux_autocommands_loaded = 1
-            let PostYank = luaeval('require("tmux").post_yank')
-            let SyncRegisters = luaeval('require("tmux").sync_registers')
-            autocmd TextYankPost * call PostYank(v:event)
-            autocmd CmdlineEnter * call SyncRegisters()
-            autocmd CmdwinEnter : call SyncRegisters()
-            autocmd VimEnter * call SyncRegisters()
-        endif
-    ]])
+    -- vim.cmd([[
+    --     if !exists("tmux_autocommands_loaded")
+    --         let tmux_autocommands_loaded = 1
+    --         let PostYank = luaeval('require("tmux").post_yank')
+    --         let SyncRegisters = luaeval('require("tmux").sync_registers')
+    --         autocmd TextYankPost * call PostYank(v:event)
+    --         autocmd CmdlineEnter * call SyncRegisters()
+    --         autocmd CmdwinEnter : call SyncRegisters()
+    --         autocmd VimEnter * call SyncRegisters()
+    --     endif
+    -- ]])
 
     _G.tmux = {
         sync_registers = sync_registers,
